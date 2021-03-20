@@ -6,6 +6,6 @@ class Project < ApplicationRecord
 
 
 
-  validates :name , presence: true ,length: { in: 15..30 }
-  validates :description, presence: true ,length: { in: 150..300 }
+  validates :name , presence: true ,length: { in: 5..30 }
+  validates :description, presence: true ,length: { in: 5..300 }
 end  
