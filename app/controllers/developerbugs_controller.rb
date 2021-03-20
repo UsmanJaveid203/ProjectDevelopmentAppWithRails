@@ -1,4 +1,4 @@
-class DeveloperbugsController < ApplicationController
+class DeveloperbugsController < ApplicationController 
     def index 
         @project = Project.find(params[:project_id])
         @developerbugs = Developerbug.joins(:bug).where(:bug=>{project_id: @project.id})
@@ -36,7 +36,7 @@ class DeveloperbugsController < ApplicationController
     def update 
         @project = Project.find(params[:project_id])
         @bug = @project.bugs.find(params[:id])
-
+        
         @bugg= @bug.update(title: @bug.title , description: @bug.description, type: @bug.type , status:params[:bug][:status] )
         if(@bugg)
             redirect_to project_developerbugs_path
@@ -45,7 +45,7 @@ class DeveloperbugsController < ApplicationController
 
 
     def destroy 
-        @projectbug = Developerbug.find_by(bug_id: params[:developerbug][:bug_id] , user_id: params[:id])
+        @projectbug = authorize Developerbug.find_by(bug_id: params[:developerbug][:bug_id] , user_id: params[:id])
         if @projectbug.destroy 
             redirect_to project_developerbugs_path 
         else 

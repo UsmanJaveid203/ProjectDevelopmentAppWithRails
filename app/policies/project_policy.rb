@@ -1,6 +1,6 @@
 class ProjectPolicy < ApplicationPolicy
 
-  class Scope
+  class Scope 
     attr_reader :user, :scope
 
     def initialize(user, scope)

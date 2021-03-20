@@ -9,10 +9,10 @@
                 <th scope="col">Bug Type</th>
                 <th scope="col">Bug Status</th>
                 <th scope="col">Bug Detail</th>
-                <% if current_user.type == "Developer" %>
+                <% if policy(:Developerbug).edit? %>
                     <th scope="col">Update Status</th>
                 <% end %>
-                <% if current_user.type == "Manager" %>
+                <% if policy(:Developerbug).destroy? %>
                     <th scope="col">Delete Bug</th>
                 <% end %>
             </tr>
