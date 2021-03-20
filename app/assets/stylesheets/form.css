@@ -1,0 +1,40 @@
+.loginHeading , .signupHeading{
+    text-align: center;
+    color: rgb(82, 82, 180);
+    font-size: 40px;
+    font-weight: bolder;
+    text-transform: uppercase;
+    font-family: sans-serif;
+}
+
+
+.login_input_f, .signup_input_f{
+    width: 100%;
+    border-radius: 8px;
+    padding: 5px 10px;
+    margin-top: 5px;
+}
+
+.login_button, .signup_btn{
+    width: 150px;
+}
+
+.login_maindiv, .signup_maindiv{
+    margin-top: 110px;
+}
+
+.project_text_area{
+    min-height: 350px;
+    resize: none;
+}
+
+@media(max-width: 420px){
+    .login_maindiv, .signup_maindiv{
+        margin-top: 80px;
+    }
+
+    .project_text_area{
+        min-height: 280px;
+        resize: none;
+    }
+}

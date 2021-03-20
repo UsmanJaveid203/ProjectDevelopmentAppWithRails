@@ -1,0 +1,17 @@
+<% content_for :title, "Edit" %>
+<% content_for :page_title, "Update Bug or feature status" %>
+
+<% @bug.errors.full_messages.each do |msg| %>
+      <div class="alert alert-danger container"><%= msg %></div>
+<% end %>
+
+<%= form_with(model: @bug , url: project_developerbug_path , method: :patch) do |form| %>
+<div class="container my-5">
+    <div class="form-group">
+        <label for="postname">Enter Status</label><br />
+        <%= form.select :status, [:new, :started, :completed], {}, {class: "form-control"} %></br>
+    </div>
+    <div class="text-center">
+        <%= form.submit "Update", class: "btn btn-secondary"%>
+    </div>
+<% end %>

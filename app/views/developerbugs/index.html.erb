@@ -1,0 +1,44 @@
+<% content_for :title, "Bugs & Features" %>
+<% content_for :page_title, "Bugs And Features" %>
+
+<div class="container my-3">
+    <table class="table">
+        <thead>
+            <tr class="pl-3">
+                <th scope="col">Bug Title</th>
+                <th scope="col">Bug Type</th>
+                <th scope="col">Bug Status</th>
+                <th scope="col">Bug Detail</th>
+                <% if current_user.type == "Developer" %>
+                    <th scope="col">Update Status</th>
+                <% end %>
+                <% if current_user.type == "Manager" %>
+                    <th scope="col">Delete Bug</th>
+                <% end %>
+            </tr>
+        </thead>
+        <tbody>
+            <% @developerbugs.each do |b| %>
+            <tr>
+                <td><%= b.bug.title %></td>
+                <td><%= b.bug.type %></td>
+                <td><%= b.bug.status %></td>
+                <td><%= link_to "Bug detail", project_developerbug_path(@project, b), class:"btn" %></td>
+                <% if current_user.type == "Developer" %>
+                    <td> 
+                        <%= link_to "Update Status", edit_project_developerbug_path(@project, b), class:"btn btn-secondary" %>
+                    </td>
+                <% end %>
+                <% if current_user.type == "Manager" %>
+                    <td> 
+                        <%= form_with(model: b, url: project_developerbug_path(@project,b.user_id ), method: :delete) do |form| %>
+                            <%= form.hidden_field :bug_id, value: b.bug_id %>
+                            <%= form.submit "Delete Bug", class: "btn btn-danger"%>
+                        <% end %>
+                    </td>
+                <% end %>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div> 

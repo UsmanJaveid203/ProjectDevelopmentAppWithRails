@@ -1,0 +1,12 @@
+<% content_for :title, "Bug & Feature" %>
+<% content_for :page_title, "Bug Or Feature Detail" %>
+
+<div class="container my-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <h3><strong>Created By : </strong><%= @developerbug.developer.name %></h3>
+            <h3 class="text-center"><strong>Title : </strong><%= @developerbug.bug.title %></h2>
+            <p class="lead"><%= @developerbug.bug.description %></p>
+        </div>
+    </div>
+</div>

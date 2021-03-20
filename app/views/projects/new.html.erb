@@ -1,0 +1,8 @@
+<% content_for :title, "Create" %>
+<% content_for :page_title, "Create Your Project" %>
+
+<% @project.errors.full_messages.each do |msg| %>
+      <div class="alert alert-danger container"><%= msg %></div>
+<% end %>
+
+<%= render "form", project: @project %>

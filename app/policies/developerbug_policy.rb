@@ -1,0 +1,3 @@
+class DeveloperbugPolicy < ApplicationPolicy
+
+end

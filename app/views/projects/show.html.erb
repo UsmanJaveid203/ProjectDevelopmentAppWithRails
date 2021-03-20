@@ -1,0 +1,16 @@
+<% content_for :title, "Project Detail" %>
+<% content_for :page_title, "Project Detail" %>
+
+
+<div class="container my-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <h2 class="text-center"><%= @project.name %></h2>
+            <p class="lead"><%= @project.description %></p>
+            <div class="text-center mt-5">
+            <%= link_to "Create Bug or feature", new_project_developerbug_path( @project), class: "btn btn-success mt-3" %>
+            <%= link_to "See Bugs and Feature", project_developerbugs_path( @project) , class: "btn btn-secondary mt-3" %>
+        </div>
+        </div>
+    </div>
+</div>

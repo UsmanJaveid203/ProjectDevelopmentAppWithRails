@@ -1,0 +1,27 @@
+<% content_for :title, "Assign Developer" %>
+<% content_for :page_title, "Assign Developer" %>
+
+<div class="container my-3">
+    <table class="table">
+        <thead> 
+            <tr class="pl-3">
+                <th scope="col">Project Name</th>
+                <th scope="col">Assign Project</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @developers.each do |dev| %>
+            <tr>
+                <td><%= dev.name %></td>
+                <td>
+                    <%= form_with(model: dev, url: project_developers_path, method: :post) do |form| %>
+                        <%= form.hidden_field :user_id, value: dev.id %>
+                        <%= form.submit "Assign", class: "btn btn-secondary"%>
+                    <% end %>
+                </td>
+            </tr>
+
+            <% end %>
+        </tbody>
+    </table>
+</div> 

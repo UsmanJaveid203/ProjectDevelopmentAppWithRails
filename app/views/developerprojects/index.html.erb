@@ -1,0 +1,24 @@
+<% content_for :title, "Working Employees" %>
+<% content_for :page_title, "Developer Working On Project" %>
+
+<div class="container my-3">
+    <table class="table">
+        <thead> 
+            <tr class="pl-3">
+                <th scope="col">Project Name</th>
+                <th scope="col">Assign Project</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @developers.each do |dev| %>
+            <tr>
+                <td><%= dev.developer.name %></td>
+                <td>
+                    <%= link_to "Remove", project_developerproject_path(@project,dev.user_id), method: :delete %>
+                </td>
+            </tr>
+
+            <% end %>
+        </tbody>
+    </table>
+</div> 
