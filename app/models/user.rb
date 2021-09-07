@@ -9,4 +9,12 @@ class User < ApplicationRecord
   validates :password, presence: true ,length: { in: 3..10 }  ,format: { with: /[A-Za-z]{3}/, message: "Three characters are compulsory" }
   validates :type, presence: true, inclusion: ["Manager", "Developer", "Qa"]
 
+  after_create :wellcome_email
+
+  private
+
+    def wellcome_email
+      WellcomeMailer.wellcome_our_website(self).deliver_later
+    end
+
 end

@@ -7,6 +7,10 @@
     font-family: sans-serif;
 }
 
+.overflow-x {
+    overflow-x: auto !important;
+}
+
 
 .login_input_f, .signup_input_f{
     width: 100%;
